@@ -651,6 +651,10 @@ bool AuthSocket::_HandleLogonProof()
     if (A.isZero())
         return false;
 
+	// exploit fix, sneaky hackers
+	if ((A % N).isZero())
+		return false;
+
     Sha1Hash sha;
     sha.UpdateBigNumbers(&A, &B, NULL);
     sha.Finalize();

@@ -843,6 +843,9 @@ bool Player::Create(uint32 guidlow, const std::string& name, uint8 race, uint8 c
     }
     // all item positions resolved
 
+	if (sWorld.getConfig(CONFIG_ALWAYS_MAXSKILL)) // Max weapon skill when leveling up
+        UpdateSkillsToMaxSkillsForLevel();
+
     return true;
 }
 
